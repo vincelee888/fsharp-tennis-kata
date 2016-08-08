@@ -1,6 +1,6 @@
 module Tennis
 
-    let ScoringSequence = ["love"; "15"]
+    let ScoringSequence = ["love"; "15"; "30"]
 
     type Players = 
     | A

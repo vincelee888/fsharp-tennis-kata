@@ -12,3 +12,8 @@ module tests
     let ``First player scores point``() =
         let result = Score([Players.A])
         result |> should equal "15-love"
+
+    [<Test>]
+    let ``First player scores two points``() =
+        let result = Score([Players.A; Players.A])
+        result |> should equal "30-love"

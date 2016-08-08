@@ -30,6 +30,7 @@ Target "Test" (fun _ ->
             {p with
                 DisableShadowCopy = true;
                 ShowLabels = true;
+                OutputFile = testDir + "TestResults.xml";
             })
 )
 

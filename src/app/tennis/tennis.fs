@@ -1,9 +1,12 @@
 module Tennis
 
-    let ScoringSequence = ["love"]
+    let ScoringSequence = ["love"; "15"]
 
-    let Score rallyWinners = 
-        let playerAScore = 0
-        let playerBScore = 0
+    type Players = 
+    | A
+    | B
+
+    let Score (rallyWinners:list<Players>):string = 
+        let playerAScore, playerBScore = List.partition (fun player -> player = Players.A) rallyWinners
         
-        ScoringSequence.[playerAScore] + "-" + ScoringSequence.[playerBScore]
+        ScoringSequence.[playerAScore.Length] + "-" + ScoringSequence.[playerBScore.Length]

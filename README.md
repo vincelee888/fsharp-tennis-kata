@@ -2,5 +2,5 @@
 
 in console, run:
 
-* ".\.paket\paket.exe install"
+* ".\\.paket\paket.exe install"
 * ".\build.bat"

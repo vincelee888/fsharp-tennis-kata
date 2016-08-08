@@ -6,7 +6,12 @@ module Tennis
     | A
     | B
 
+    let ParseScoredPoints (rallyWinners:list<_>) =
+        List.partition (fun player -> player = Players.A) rallyWinners
+
+    let ScoreDescription (playerPoints:list<_>) =
+        ScoringSequence.[playerPoints.Length]
+
     let Score (rallyWinners:list<Players>):string = 
-        let playerAScore, playerBScore = List.partition (fun player -> player = Players.A) rallyWinners
-        
-        ScoringSequence.[playerAScore.Length] + "-" + ScoringSequence.[playerBScore.Length]
+        let playerAScore, playerBScore = ParseScoredPoints rallyWinners
+        ScoreDescription(playerAScore) + "-" + ScoreDescription(playerBScore)

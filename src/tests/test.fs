@@ -23,12 +23,12 @@ module tests
 
     [<Test>]
     let ``First player scores three points``() =
-        let twoPointsToA = pointsSequence Players.A 3
-        let result = Score (Seq.toList twoPointsToA)
+        let threePointsToA = pointsSequence Players.A 3
+        let result = Score (Seq.toList threePointsToA)
         result |> should equal "40-love"
 
     [<Test>]
     let ``First player scores four points``() =
-        let twoPointsToA = pointsSequence Players.A 4
-        let result = Score (Seq.toList twoPointsToA)
+        let fourPointsToA = pointsSequence Players.A 4
+        let result = Score (Seq.toList fourPointsToA)
         result |> should equal "Game: A"

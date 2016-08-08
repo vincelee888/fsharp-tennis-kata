@@ -14,7 +14,8 @@ module Tennis
         | B -> snd PlayerNames
 
     let ParseScoredPoints (rallyWinners:list<_>) =
-        List.partition (fun player -> player = Players.A) rallyWinners
+        let pointsA, pointsB = List.partition (fun player -> player = Players.A) rallyWinners
+        pointsA.Length, pointsB.Length
 
     let ScoreDescription (playerPoints) =
         ScoringSequence.[playerPoints]
@@ -30,7 +31,7 @@ module Tennis
 
     let Score (rallyWinners:list<Players>):string = 
         let playerA, playerB = ParseScoredPoints rallyWinners
-        match playerA.Length, playerB.Length with
+        match playerA, playerB with
         | x, y when Advantage(x, y) -> "Adv: " + GetPlayerName A
         | x, y when Advantage(y, x) -> "Adv: " + GetPlayerName B
         | x, y when Deuce(x, y) -> "Deuce"

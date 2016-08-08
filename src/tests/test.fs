@@ -3,6 +3,8 @@ module tests
     open FsUnit
     open Tennis
 
+    let pointsSequence p n = seq { for x in 1..n do yield p }
+
     [<Test>]
     let ``Game starts love-love``() = 
         let result = Score ([])
@@ -15,5 +17,6 @@ module tests
 
     [<Test>]
     let ``First player scores two points``() =
-        let result = Score([Players.A; Players.A])
+        let twoPointsToA = pointsSequence Players.A 2
+        let result = Score (Seq.toList twoPointsToA)
         result |> should equal "30-love"

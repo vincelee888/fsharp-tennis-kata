@@ -56,3 +56,9 @@ module tests
         let ralliesWon = [A;B;A;B;A;B;A;B;B]
         let result = Score ralliesWon
         result |> should equal "Adv: B"
+            
+    [<Test>]
+    let ``Player gets advantage, then scores again``() =
+        let ralliesWon = [A;B;A;B;A;B;A;A]
+        let result = Score ralliesWon
+        result |> should equal "Game: A"

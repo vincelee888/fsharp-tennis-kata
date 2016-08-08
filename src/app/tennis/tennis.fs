@@ -16,6 +16,7 @@ module Tennis
     let Score (rallyWinners:list<Players>):string = 
         let playerA, playerB = ParseScoredPoints rallyWinners
         match playerA.Length, playerB.Length with
+        | x, y when x = winningScore + 1 && y = winningScore -> "Adv: A"
         | x, y when x = winningScore && y = winningScore -> "Deuce"
         | x, y when x = winningScore -> "Game: A"
         | x, y when y = winningScore -> "Game: B"

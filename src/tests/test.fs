@@ -50,3 +50,9 @@ module tests
         let ralliesWon = [A;B;A;B;A;B;A;B;A]
         let result = Score ralliesWon
         result |> should equal "Adv: A"
+
+    [<Test>]
+    let ``Both players on four points, then other player scores one``() =
+        let ralliesWon = [A;B;A;B;A;B;A;B;B]
+        let result = Score ralliesWon
+        result |> should equal "Adv: B"

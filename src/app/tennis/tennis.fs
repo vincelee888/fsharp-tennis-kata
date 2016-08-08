@@ -32,9 +32,9 @@ module Tennis
     let Score (rallyWinners:list<Players>):string = 
         let playerA, playerB = ParseScoredPoints rallyWinners
         match playerA, playerB with
+        | x, y when WinGame(x, y) -> "Game: " + GetPlayerName A
+        | x, y when WinGame(y, x) -> "Game: " + GetPlayerName B
         | x, y when Advantage(x, y) -> "Adv: " + GetPlayerName A
         | x, y when Advantage(y, x) -> "Adv: " + GetPlayerName B
         | x, y when Deuce(x, y) -> "Deuce"
-        | x, y when WinGame(x, y) -> "Game: " + GetPlayerName A
-        | x, y when WinGame(y, x) -> "Game: " + GetPlayerName B
         | x, y -> ScoreDescription(x) + "-" + ScoreDescription(y)

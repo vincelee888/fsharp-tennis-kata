@@ -32,3 +32,9 @@ module tests
         let fourPointsToA = pointsSequence Players.A 4
         let result = Score (Seq.toList fourPointsToA)
         result |> should equal "Game: A"
+
+    [<Test>]
+    let ``Second player scores four points``() =
+        let fourPointsToB = pointsSequence Players.B 4
+        let result = Score (Seq.toList fourPointsToB)
+        result |> should equal "Game: B"
